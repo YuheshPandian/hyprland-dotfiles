@@ -1,0 +1,94 @@
+/* Global */
+* {
+    font: "FiraCode Nerd Mono 17";
+    border-radius: 18px;
+    spacing: 18px;
+}
+
+/* Window */
+window {
+    transparency: "real";
+    width: 800px;
+
+    background-color: rgba(20, 22, 28, 0.94);
+
+    border: 2px;
+    border-color: rgba(168, 162, 238, 0.35);
+
+    padding: 30px;
+}
+
+/* Input bar */
+inputbar {
+    children: [ prompt, entry ];
+    spacing: 20px;
+    background-color: transparent;
+    cursor:text;
+    
+}
+
+prompt {
+    text-color: #7aa2f7;
+    background-color: transparent;
+}
+
+entry {
+    text-color: #dcd8e6;
+    placeholder: "Search Applications...";
+    placeholder-color: #8a8496;
+    background-color: transparent;
+}
+
+/* List view */
+listview {
+    lines: 6;
+    columns: 1;
+    fixed-height: true;
+    cycle: false;
+    scrollbar: false;
+    background-color: transparent;
+}
+
+/* Elements */
+element {
+    padding: 16px;
+    border-radius: 14px;
+    background-color: transparent;
+    text-color: #dcd8e6;
+    text-align:center;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: #dcd8e6;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: #dcd8e6;
+}
+
+element selected.normal {
+    background-color: #8ca5db;
+    text-color: #14121a;
+}
+
+element selected.active {
+    background-color: #7aa2f7;
+    text-color: #14121a;
+}
+
+element-text {
+    padding:12px;
+}
+
+/* Icons */
+configuration {
+    show-icons: true;
+}
+
+element-icon {
+    size: 32px;
+    background-color: rgba(168, 162, 238, 0.35);
+    padding:10px;
+}
