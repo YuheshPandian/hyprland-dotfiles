@@ -1,0 +1,164 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 50,
+
+    // "modules-left": ["hyprland/workspaces", "clock", "cpu", "memory", "tray"],
+
+    "modules-left": ["hyprland/workspaces", "clock", "tray"],
+
+    "modules-center": ["hyprland/window"],
+
+    // "modules-right": [
+    //     "temperature",
+    //     "network",
+    //     "backlight",
+    //     "pulseaudio",
+    //     "pulseaudio#microphone",
+    //     "battery",
+    //     "custom/poweroff",
+    // ],
+
+    "modules-right": [
+        "network",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "custom/poweroff",
+    ],
+
+    "hyprland/window": {
+        "format": " 󱗽 {}",
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+        },
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10,
+    },
+
+    "clock": {
+        "format": "{:%R  %d·%m·%y}",
+        "rotate": 0,
+        "format-alt": "{:%R  %d·%m·%y}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b>{}</b></span>",
+            },
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down",
+        },
+    },
+    // "cpu": {
+    //     "interval": 15,
+    //     "format": " {}%",
+    //     "max-length": 10,
+    // },
+
+    // "memory": {
+    //     "interval": 5,
+    //     "format": " {}%",
+    //     "max-length": 10,
+    // },
+
+    // "temperature": {
+    //     "critical-threshold": 80,
+    //     "format": "{icon} {temperatureC}°C",
+    //     "format-icons": ["", "", "", ""],
+    // },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}  {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6,
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20,
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+
+    "custom/poweroff": {
+        "format": "⏻",
+        "tooltip": "Power menu",
+        "on-click": "kitty sh -c 'hyprctl dispatch exit'",
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""],
+        },
+    },
+
+    // "pulseaudio#microphone": {
+    //     "format": "{format_source}",
+    //     "format-source": " {volume}%",
+    //     "format-source-muted": " Muted",
+    //     "on-click": "pamixer --default-source -t",
+    //     "on-scroll-up": "pamixer --default-source -i 5",
+    //     "on-scroll-down": "pamixer --default-source -d 5",
+    //     "scroll-step": 5,
+    // },
+
+    "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}",
+        "on-click-right": "kitty sh -c 'nmtui'",
+    },
+}
