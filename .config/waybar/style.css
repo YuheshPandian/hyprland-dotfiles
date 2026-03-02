@@ -1,0 +1,169 @@
+/* =========================
+   Color Variables
+   ========================= */
+@define-color bg-main rgba(20, 22, 28, 0.94);
+@define-color bg-hover rgba(140, 160, 210, 0.4);
+@define-color bg-active rgba(140, 160, 210, 0.16);
+@define-color bg-urgent rgba(110, 90, 200, 0.32);
+
+@define-color text-main #dcd8e6;
+@define-color text-muted #8a8496;
+@define-color text-contrast #14121a;
+
+@define-color border-main rgba(90, 88, 110, 0.35);
+@define-color accent #7aa2f7;
+
+/* =========================
+   Global
+   ========================= */
+* {
+    border: none;
+    border-radius: 10px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 16px;
+    min-height: 0;
+    transition: 0.3s ease;
+}
+
+window#waybar {
+    background: rgba(18, 15, 24, 0);
+    color: @text-main;
+}
+
+tooltip {
+    background: rgba(20, 22, 28, 0.98);
+    color: @text-main;
+
+    border: 1px solid @border-main;
+    border-radius: 12px;
+
+    padding: 8px 12px;
+    margin: 6px;
+
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: 400;
+}
+
+tooltip label {
+    color: @text-main;
+}
+
+/* =========================
+   Window
+   ========================= */
+#window {
+    color: @text-muted;
+}
+
+/* =========================
+   Workspaces
+   ========================= */
+#workspaces button {
+    padding: 7px;
+    color: @text-muted;
+    margin-right: 5px;
+}
+
+#workspaces button:hover {
+    background: @bg-hover;
+    color: @text-main;
+}
+
+#workspaces button.active {
+    background: @bg-active;
+    color: @text-main;
+}
+
+#workspaces button.focused {
+    background: @accent;
+    color: @text-contrast;
+}
+
+#workspaces button.urgent {
+    background: @bg-urgent;
+    color: @text-contrast;
+}
+
+/* =========================
+   Shared modules
+   ========================= */
+#custom-power_profile,
+#custom-weather,
+#cpu,
+#memory,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#pulseaudio.microphone,
+#network,
+#temperature,
+#workspaces,
+#tray,
+#backlight,
+#custom-poweroff {
+    background: @bg-main;
+    padding: 4px 12px;
+    margin-top: 5px;
+    margin-right: 2px;
+    margin-left: 2px;
+    border-radius: 10px;
+    color: @text-main;
+}
+
+/* =========================
+   Individual modules
+   ========================= */
+#clock,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#custom-power_profile,
+#network,
+#pulseaudio,
+#pulseaudio.microphone,
+#battery {
+    color: @text-main;
+}
+
+/* Temperature critical */
+#temperature.critical {
+    color: @accent;
+}
+
+/* Tray */
+#tray {
+    padding: 4px 6px;
+    margin-right: 5px;
+}
+
+/* Poweroff button */
+#custom-poweroff {
+    color: @text-main;
+    margin-right: 8px;
+    border: 1px solid @border-main;
+    padding-right: 15px;
+}
+
+#custom-poweroff:hover {
+    background: @bg-urgent;
+    color: @text-main;
+}
+
+/* =========================
+Hover effects
+   ========================= */
+#backlight:hover,
+#clock:hover,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover,
+#temperature:hover,
+#memory:hover,
+#cpu:hover {
+    background: @bg-hover;
+    color: @bg-main;
+}
